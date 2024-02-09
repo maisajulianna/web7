@@ -7,13 +7,13 @@ const Navigation = () => {
         <nav className="navbar">
             <ul>
             <li>
-                <Link to="/">Login</Link>
-            </li>
-            <li>
                 <Link to="/home">Home</Link>
             </li>
             <li>
                 <Link to="/profile">Profile</Link>
+            </li>
+            <li>
+                <Link to="/settings">Settings</Link>
             </li>
             </ul>
         </nav>
@@ -21,7 +21,6 @@ const Navigation = () => {
         <main className="page-content">
             <Outlet />
         </main>
-
         </>
     );
 };
