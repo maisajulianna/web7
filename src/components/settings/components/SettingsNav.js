@@ -1,5 +1,4 @@
 import { Outlet, Link } from 'react-router-dom';
-import "../../Navigation.css";
 
 const SettingsNav = () => {
   return (
@@ -25,14 +24,12 @@ const SettingsNav = () => {
               <Link to="/settings/help">Help</Link>
           </li>
           <li>
-              <Link to="/home">Go Back</Link>
+              <Link id="nav-home" to="/home">Go Back</Link>
           </li>
         </ul>
       </nav>
 
-      <main className="settings-content">
-        <Outlet />
-      </main>
+      <Outlet />
       </>
   );
 }

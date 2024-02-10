@@ -2,7 +2,7 @@ import { Outlet, Link } from 'react-router-dom';
 
 function Help () {
     return (
-      <div>
+      <div className="help">
         <h1>Help options</h1>
       </div>
     )

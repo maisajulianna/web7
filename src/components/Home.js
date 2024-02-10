@@ -3,7 +3,7 @@
 function Home() {
     return (
       <div className="home">
-        <div><h2>App Name</h2></div>
+        <div><h2>AMACEN</h2></div>
         <div className="content">
           <section>
             <p>content</p>
@@ -23,6 +23,6 @@ function Home() {
         </div>
       </div>
     );
-  }
+};
   
   export default Home;

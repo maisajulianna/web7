@@ -7,27 +7,25 @@ function Registration() {
         <h2>Register</h2>
         <p>Please fill the form to register.</p>
         <form action="/submit_registration" method="post">
-          <label htmlFor="username">Username: </label>
-          <input type="text" id="username" required/><br />
 
-          <label htmlFor="email">Email: </label>
-          <input type="email" id="email" name="email" required/><br />
-
-          <label htmlFor="password">Password: </label>
-          <input type="password" id="password" name="password" required/><br />
-
-          <label htmlFor="confirmPassword">Confirm Password: </label>
-          <input type="password" id="confirmPassword" name="confirmPassword" required/><br />
+          <input type="text" id="username" placeholder="Username" required/><br />
+          <input type="email" id="email" name="email" placeholder="Email" required/><br />
+          <input type="password" id="password" name="password" placeholder="Password" required/><br />
+          <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required/><br />
 
           <div className="buttons">
             <button type="submit" id="turq-btn">Sign up</button>
           </div>
-          <p>Already have an account?<br />
-          <Link className="link-btn" to="/">Login here!</Link>
-          </p>
+
         </form>
+        <p>Already have an account?<br />
+        <Link className="link-btn" to="/login">Login here!</Link>
+        </p>
       </section>
     );
   }
+
+  /* this can be used to create a label before an input box:
+  <label htmlFor="username"> </label> */
   
   export default Registration; 

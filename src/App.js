@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { useEffect, useRef, useState } from 'react';
 import Navigation from './components/Navigation';
+import Start from './components/Start';
 import Home from './components/Home';
 import Login from './components/Login';
 import Registration from './components/Registration';
@@ -25,7 +25,8 @@ return (
   <BrowserRouter>
     <Routes>
     <Route path="/" element={<Navigation />}>
-        <Route index element={<Login />} />
+        <Route index element={<Start />} />
+        <Route path="login" element={<Login />} />
         <Route path="register" element={<Registration />} />
         <Route path="home" element={<Home />} />
         <Route path="profile" element={<Profile />} />
@@ -33,13 +34,14 @@ return (
         <Route path="*" element={<NotFound />} />
       </Route>
       <Route path="/settings/" element={<SettingsNav />}>
-          <Route path="account" element={<Account />} />
-          <Route path="notifs" element={<Notifications />} />
-          <Route path="blocked" element={<Blocked />} />
-          <Route path="privacy" element={<Privacy />} />
-          <Route path="terms" element={<Terms />} />
-          <Route path="help" element={<Help />} />
-          <Route path="*" element={<NotFound />} />
+        <Route index element={<Settings />} />
+        <Route path="account" element={<Account />} />
+        <Route path="notifs" element={<Notifications />} />
+        <Route path="blocked" element={<Blocked />} />
+        <Route path="privacy" element={<Privacy />} />
+        <Route path="terms" element={<Terms />} />
+        <Route path="help" element={<Help />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   </BrowserRouter>

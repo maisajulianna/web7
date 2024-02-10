@@ -1,11 +1,13 @@
 import { Outlet, Link } from 'react-router-dom';
-import "./Navigation.css";
 
 const Navigation = () => {
     return (
         <>
         <nav className="navbar">
             <ul>
+            <li>
+                <Link id="nav-logo" to="/">*logo*</Link>
+            </li>
             <li>
                 <Link to="/home">Home</Link>
             </li>
@@ -15,14 +17,22 @@ const Navigation = () => {
             <li>
                 <Link to="/settings">Settings</Link>
             </li>
+            <li>
+                <Link id="nav-login" to="/login">Login</Link>
+            </li>
             </ul>
         </nav>
     
-        <main className="page-content">
-            <Outlet />
-        </main>
+        <Outlet />
         </>
     );
 };
 
+/* login is here for navigation, to be removed */
+
 export default Navigation;
+
+/*
+<main className="page-content">
+<Outlet />
+</main>*/

@@ -3,8 +3,9 @@
     font-family: Rubik;
     src: url(https://fonts.googleapis.com/css?family=Rubik);
 }
-/* color variables */
 
+
+/* color variables */
 
 :root {
     /* primary colors */
@@ -13,10 +14,15 @@
     --turquoise: rgb(153, 225, 217);
     --blue: rgb(88, 119, 146);
     --dark-violet: #5d576b;
+    --light-violet: #787187;
 
-    /* hover colors */
-    --hover-pink: #cb4161;
-    --hover-turquoise: #6db1aa;
+    /* secondary colors */
+    --dark-pink: #cb4161;
+    --dark-turquoise: #6db1aa;
+    --light-pink: #f758b0;
+    --light-turquoise: #cceede;
+    --light-white: #ebf5ee;
+    --pretty-black: #333333;
 }
 
 /* global */
@@ -25,6 +31,8 @@ body {
     display: flex;
     left: 0;
     top: 0;
+    margin: 0;
+    padding: 0;
     height: 100%;
     width: auto;
 
@@ -32,48 +40,139 @@ body {
     flex-direction: column;
     align-items: center; /* Center items vertically */
     padding: 1rem;
-    margin-left: 8rem;
-
-    background-color: var(--dark-violet);
-}
-
-
-/* login page styles */
-/*
-.button
-{
-    margin-top: 10px;
-    padding: 10px;
-    border: 2px solid var(--offwhite);
     
+    background-color: var(--dark-violet);
+    margin-left: 8rem;
 }
+
+/* navigation Styles */
+
+.navbar, .setnav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding: 1rem;
+    background-color: var(--light-violet);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 2rem;
+  }
+  
+  li {
+    margin-bottom: 2.5rem;
+  }
+  
+  li a {
+    text-decoration: none;
+    color: var(--pretty-black);
+    border: 2px solid var(--turquoise);
+    border-radius: 25px;
+    background-color: var(--turquoise);
+    padding: 9px 15px 9px 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  }
+  
+  li a:hover {
+    cursor: pointer;
+    background-color: var(--pink);
+    /*padding: 9px 25px 9px 25px;*/
+    color: white
+  }
+
+  #nav-logo, #nav-home, #nav-login {
+    text-decoration: none;
+    color: var(--pretty-black);
+    border: 2px solid var(--offwhite);
+    border-radius: 25px;
+    background-color: var(--offwhite);
+    padding: 9px 15px 9px 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  }
+
+  #nav-logo:hover, #nav-home:hover, #nav-login:hover{
+    cursor: pointer;
+    background-color: var(--pink);
+    /*padding: 9px 25px 9px 25px;*/
+    color: white
+  }
+
+  #nav-login, #nav-home{
+    bottom: 0;
+    position: absolute;
+    margin-bottom: 3rem;
+  }
+
+
+/* start page styles */
+
+.start {
+    text-align: center;
+    color: var(--offwhite);
+    margin: 2em;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* 
+=================
+login and register page styles 
+=================
 */
+
+.login-box {
+    border: 2px solid var(--light-white);
+    background-color: var(--light-white);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 15px;
+
+    height: auto;
+    width: 100%;
+
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.login-box input {
+    padding: 5px;
+    margin: 4px;
+    border-radius: 8px;
+    background-color: var(--turquoise);
+    width: 80%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    font-family: Rubik, Arial, Helvetica, sans-serif;
+}
+
+.login-box input:hover {
+    background-color: var(--dark-turquoise);
+    cursor: default;
+}
+
+.login-box input:focus {
+    cursor: text;
+}
 
 .buttons {
     margin-top: 10px;
     padding: 10px;
 }
 
-.login-box {
-    border: 2px solid var(--offwhite);
-    background-color: var(--offwhite);
-    border-radius: 10px;
-    padding: 9px 15px 9px 15px;
-
-    height: 50%;
-    width: 80%;
-
-    margin-top: 2rem;
-    text-align: center;
-}
-
 #pink-btn, #turq-btn {
     margin: 4px;
     padding: 10px;
     border-radius: 7px;
-    border: none;
     cursor: pointer;
     width: 5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    font-family: Rubik, Arial, Helvetica, sans-serif;
 }
 
 #turq-btn {
@@ -87,11 +186,11 @@ body {
 }
 
 #turq-btn:hover {
-    background-color: var(--hover-turquoise);
+    background-color: var(--dark-turquoise);
 }
 
 #pink-btn:hover {
-    background-color: var(--hover-pink);
+    background-color: var(--dark-pink);
 }
 
 .link-btn {
@@ -103,11 +202,13 @@ body {
     color: var(--pink);
 }
 
+
 /* home page styles */
 
 .home {
     text-align: center;
     color: var(--offwhite);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
 }
 .content {
     display: flex;
@@ -136,8 +237,13 @@ body {
 .profile {
     text-align: center;
 }
+.profile h2 {
+    color: var(--offwhite);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
 .profile-content {
     display: flex;
+    color: var(--pretty-black);
 }
 .profile section {
     flex: 1;
@@ -148,7 +254,6 @@ body {
     height: 600px;
     width: 200px;
 }
-
 .posts {
     background-color: var(--offwhite);
 }
@@ -174,17 +279,17 @@ body {
 
 /* settings page styles */
 
-.settings-box {
-    margin-left: 15rem; 
-    background-color: var(--dark-violet);
-}
-
-.setting-info {
+.settings, .account, .notifs, .blocked, .privacy, .terms, .help {
     padding-left: 0;
-    padding-right: 400px;
+    margin-left: 8rem;
+    text-align: center;
+    color: var(--offwhite);
+    background-color: var(--dark-violet);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
 
-#account {
+
+/* #account {
     background-color:rgb(153, 225, 217);
     border-radius: 25px;
     display: block;
@@ -198,111 +303,5 @@ body {
     padding: 9px 15px 9px 15px;
     cursor: pointer;
     font-family: 'Rubik', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-#account:hover {
-    background-color: var(--hover-turquoise);
-}
-
-#notifs {
-    background-color:rgb(153, 225, 217);
-    border-radius: 25px;
-    display: block;
-    font-size: 35px;
-    margin: 20px 20px 0 0;
-    text-decoration: none;
-    color: var(--dark-violet);
-    border: 5px solid var(--turquoise);
-    border-radius: 25px;
-    background-color: var(--turquoise);
-    padding: 9px 15px 9px 15px;
-    cursor: pointer;
-    font-family: 'Rubik', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-#notifs:hover {
-    background-color: var(--hover-turquoise);
-}
-
-#blocks {
-    background-color:rgb(153, 225, 217);
-    border-radius: 25px;
-    display: block;
-    font-size: 35px;
-    margin: 20px 20px 0 0;
-    text-decoration: none;
-    color: var(--dark-violet);
-    border: 5px solid var(--turquoise);
-    border-radius: 25px;
-    background-color: var(--turquoise);
-    padding: 9px 15px 9px 15px;
-    cursor: pointer;
-    font-family: 'Rubik', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-#blocks:hover {
-    background-color: var(--hover-turquoise);
-}
-
-#privacy {
-    background-color:rgb(153, 225, 217);
-    border-radius: 25px;
-    display: block;
-    font-size: 35px;
-    margin: 20px 20px 0 0;
-    text-decoration: none;
-    color: var(--dark-violet);
-    border: 5px solid var(--turquoise);
-    border-radius: 25px;
-    background-color: var(--turquoise);
-    padding: 9px 15px 9px 15px;
-    cursor: pointer;
-    font-family: 'Rubik', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-#privacy:hover {
-    background-color: var(--hover-turquoise);
-}
-
-#terms {
-    background-color:rgb(153, 225, 217);
-    border-radius: 25px;
-    display: block;
-    font-size: 35px;
-    margin: 20px 20px 0 0;
-    text-decoration: none;
-    color: var(--dark-violet);
-    border: 5px solid var(--turquoise);
-    border-radius: 25px;
-    background-color: var(--turquoise);
-    padding: 9px 15px 9px 15px;
-    cursor: pointer;
-    font-family: 'Rubik', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-#terms:hover {
-    background-color: var(--hover-turquoise);
-}
-
-#help {
-    background-color:rgb(153, 225, 217);
-    border-radius: 25px;
-    display: block;
-    font-size: 35px;
-    margin: 20px 20px 0 0;
-    text-decoration: none;
-    color: var(--dark-violet);
-    border: 5px solid var(--turquoise);
-    border-radius: 25px;
-    background-color: var(--turquoise);
-    padding: 9px 15px 9px 15px;
-    cursor: pointer;
-    font-family: 'Rubik', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-#help:hover {
-    background-color: var(--hover-turquoise);
-}
-
-
+} */
   

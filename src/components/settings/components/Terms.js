@@ -1,8 +1,6 @@
-import { Outlet, Link } from 'react-router-dom';
-
 function Terms() {
     return (
-      <div>
+      <div className="terms">
         <h1>Terms Of Use</h1>
       </div>
     )

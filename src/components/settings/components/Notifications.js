@@ -2,7 +2,7 @@ import { Outlet, Link } from 'react-router-dom';
 
 function Notifications() {
     return (
-      <div>
+      <div className="notifs">
         <h1>Notifications settings</h1>
       </div>
     )

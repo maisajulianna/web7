@@ -4,24 +4,22 @@ import { Outlet, Link } from 'react-router-dom';
 function Login() {
   return (
     <section className="login-box">
-      <h2>Login</h2>
+      <h2>Log in</h2>
       <p>Welcome to our website!</p>
       <form action="/submit_registration" method="post">
-        <label htmlFor="username">Username: </label>
-        <input type="text" id="username" required/><br />
 
-        <label htmlFor="email">Email: </label>
-        <input type="email" id="email" name="email" required/><br />
-
-        <label htmlFor="password">Password: </label>
-        <input type="password" id="password" name="password" required/><br />
+        <input type="text" id="username" placeholder="Username" required/><br />
+        <input type="email" id="email" name="email" placeholder="Email" required/><br />
+        <input type="password" id="password" name="password" placeholder="Password" required/><br />
 
         <div className="buttons">
-          <button type="submit" id="turq-btn">Login</button>
+          <button type="submit" id="turq-btn">Log in</button>
         </div>
+
       </form>
-      <p>Dont have an account?<br />
-      <Link className="link-btn" to="/register">Register here!</Link>
+
+      <p>Don't have an account?<br />
+        <Link className="link-btn" to="/register">Register here!</Link>
       </p>
     </section>
   );
