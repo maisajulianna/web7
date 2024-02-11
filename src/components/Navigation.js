@@ -1,4 +1,5 @@
 import { Outlet, Link } from 'react-router-dom';
+import logo from '../logo_small.png';
 
 const Navigation = () => {
     return (
@@ -6,7 +7,9 @@ const Navigation = () => {
         <nav className="navbar">
             <ul>
             <li>
-                <Link id="nav-logo" to="/">*logo*</Link>
+                <Link id="logo-link" to="/">
+                    <img id="nav-logo" src={logo} alt="logo" />
+                </Link>
             </li>
             <li>
                 <Link to="/home">Home</Link>

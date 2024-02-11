@@ -3,7 +3,7 @@ import { Outlet, Link } from 'react-router-dom';
 
 function Login() {
   return (
-    <section className="login-box">
+    <div className="login-box">
       <h2>Log in</h2>
       <p>Welcome to our website!</p>
       <form action="/submit_registration" method="post">
@@ -13,7 +13,7 @@ function Login() {
         <input type="password" id="password" name="password" placeholder="Password" required/><br />
 
         <div className="buttons">
-          <button type="submit" id="turq-btn">Log in</button>
+          <button type="submit" className="turq-btn">Log in</button>
         </div>
 
       </form>
@@ -21,7 +21,7 @@ function Login() {
       <p>Don't have an account?<br />
         <Link className="link-btn" to="/register">Register here!</Link>
       </p>
-    </section>
+    </div>
   );
 }
 

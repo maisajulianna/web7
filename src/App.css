@@ -22,10 +22,12 @@
     --light-pink: #f758b0;
     --light-turquoise: #cceede;
     --light-white: #ebf5ee;
+    --transparent-white: rgba(235, 245, 238, 0.9);
     --pretty-black: #333333;
 }
 
 /* global */
+
 body {
     font-family: Rubik, Arial, Helvetica, sans-serif;
     display: flex;
@@ -45,7 +47,11 @@ body {
     margin-left: 8rem;
 }
 
-/* navigation Styles */
+/* 
+==================
+navigation styles 
+==================
+*/
 
 .navbar, .setnav {
     position: fixed;
@@ -64,14 +70,18 @@ body {
   ul {
     list-style: none;
     padding: 0;
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
   
   li {
     margin-bottom: 2.5rem;
   }
+
+  #nav-logo {
+    width: 2em;
+  }
   
-  li a {
+  li a:not(#logo-link, #nav-home, #nav-login){
     text-decoration: none;
     color: var(--pretty-black);
     border: 2px solid var(--turquoise);
@@ -81,14 +91,14 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   }
   
-  li a:hover {
+  li a:hover:not(#logo-link), #nav-logo:hover {
     cursor: pointer;
     background-color: var(--pink);
     /*padding: 9px 25px 9px 25px;*/
     color: white
   }
 
-  #nav-logo, #nav-home, #nav-login {
+  #nav-home, #nav-login, #nav-logo {
     text-decoration: none;
     color: var(--pretty-black);
     border: 2px solid var(--offwhite);
@@ -98,21 +108,18 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   }
 
-  #nav-logo:hover, #nav-home:hover, #nav-login:hover{
-    cursor: pointer;
-    background-color: var(--pink);
-    /*padding: 9px 25px 9px 25px;*/
-    color: white
-  }
 
-  #nav-login, #nav-home{
+  #nav-login, #nav-home { /* moves btns to the bottom of the nav */
     bottom: 0;
     position: absolute;
     margin-bottom: 3rem;
   }
 
-
-/* start page styles */
+/* 
+==================
+start page styles 
+==================
+*/
 
 .start {
     text-align: center;
@@ -121,18 +128,23 @@ body {
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
 }
 
+.start .link-btn {
+    color: var(--turquoise);
+}
+
+
 /* 
-=================
-login and register page styles 
-=================
+==================
+login page styles 
+==================
 */
 
 .login-box {
     border: 2px solid var(--light-white);
-    background-color: var(--light-white);
+    background-color: var(--transparent-white);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
-    padding: 15px;
+    padding: 30px;
 
     height: auto;
     width: 100%;
@@ -165,7 +177,7 @@ login and register page styles
     padding: 10px;
 }
 
-#pink-btn, #turq-btn {
+.pink-btn, .turq-btn {
     margin: 4px;
     padding: 10px;
     border-radius: 7px;
@@ -173,23 +185,26 @@ login and register page styles
     width: 5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
     font-family: Rubik, Arial, Helvetica, sans-serif;
+    font-size: small;
+    text-decoration: none;
+    color: black
 }
 
-#turq-btn {
+.turq-btn {
     background-color: var(--turquoise);
     border: 2px solid var(--turquoise);
 }
 
-#pink-btn {
+.pink-btn {
     background-color: var(--pink);
     border: 2px solid var(--pink);
 }
 
-#turq-btn:hover {
+.turq-btn:hover {
     background-color: var(--dark-turquoise);
 }
 
-#pink-btn:hover {
+.pink-btn:hover {
     background-color: var(--dark-pink);
 }
 
@@ -202,8 +217,11 @@ login and register page styles
     color: var(--pink);
 }
 
-
-/* home page styles */
+/* 
+==================
+home page styles 
+==================
+*/
 
 .home {
     text-align: center;
@@ -215,8 +233,9 @@ login and register page styles
 }
 .content section {
     background-color: var(--offwhite);
-    flex: 1;
+    border-radius: 8px;
     box-sizing: border-box;
+    flex: 1;
 
     padding: 1rem;
     margin: 1rem;
@@ -231,8 +250,11 @@ login and register page styles
     padding: 10px;
 }
 
-
-/* profile page styles */
+/* 
+==================
+profile page styles 
+==================
+*/
 
 .profile {
     text-align: center;
@@ -248,6 +270,7 @@ login and register page styles
 .profile section {
     flex: 1;
     box-sizing: border-box;
+    border-radius: 8px;
 
     padding: 1rem;
     margin: 1rem;
@@ -276,8 +299,11 @@ login and register page styles
     padding: 10px;
 }
 
-
-/* settings page styles */
+/* 
+==================
+settings page styles 
+==================
+*/
 
 .settings, .account, .notifs, .blocked, .privacy, .terms, .help {
     padding-left: 0;
