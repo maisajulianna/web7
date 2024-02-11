@@ -3,7 +3,7 @@
 function Home() {
     return (
       <div className="home">
-        <div><h2>AMACEN</h2></div>
+        <div className="home-header"><h2>AMACEN</h2></div>
         <div className="content">
           <section>
             <p>content</p>
