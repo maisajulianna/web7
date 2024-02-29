@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { useState } from 'react';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import Start from './components/Start';
 import Home from './components/Home';
@@ -21,13 +22,20 @@ import './App.css'
 //const app = express();
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    JSON.parse(localStorage.getItem("user")) || true
+  );
 return (
   <BrowserRouter>
+    <Navbar
+      isAuthenticated={isAuthenticated}
+      setIsAuthenticated={setIsAuthenticated}
+    />
     <Routes>
     <Route path="/" element={<Navigation />}>
         <Route index element={<Start />} />
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Registration />} />
+        <Route path="login" element={!isAuthenticated ? (<Login setIsAuthenticated={setIsAuthenticated}/>) : <Navigate to ="login"/>} />
+        <Route path="register" element={!isAuthenticated ? (<Registration setIsAuthenticated={setIsAuthenticated}/>) : <Navigate to ="register"/>} />
         <Route path="home" element={<Home />} />
         <Route path="profile" element={<Profile />} />
         <Route path="settings" element={<Settings />} />       
