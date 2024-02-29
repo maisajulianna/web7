@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import Navbar from './components/Navbar';
 import Navigation from './components/Navigation';
 import Start from './components/Start';
 import Home from './components/Home';
@@ -18,8 +19,7 @@ import Privacy from './components/settings/components/Privacy';
 import Terms from './components/settings/components/Terms';
 import Help from './components/settings/components/Help';
 import './App.css'
-//const connectDB = require("./config/db");
-//const app = express();
+
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
@@ -34,9 +34,9 @@ return (
     <Routes>
     <Route path="/" element={<Navigation />}>
         <Route index element={<Start />} />
-        <Route path="login" element={!isAuthenticated ? (<Login setIsAuthenticated={setIsAuthenticated}/>) : <Navigate to ="login"/>} />
-        <Route path="register" element={!isAuthenticated ? (<Registration setIsAuthenticated={setIsAuthenticated}/>) : <Navigate to ="register"/>} />
-        <Route path="home" element={<Home />} />
+        <Route path="login" element={<Login /> } />
+        <Route path="register" element={<Registration />} />
+        <Route path="home" element={!isAuthenticated ? (<Login setIsAuthenticated={setIsAuthenticated}/>) : <Navigate to ="/home" />} />
         <Route path="profile" element={<Profile />} />
         <Route path="settings" element={<Settings />} />       
         <Route path="*" element={<NotFound />} />
@@ -57,6 +57,11 @@ return (
 };
 
 
+/*
+  <Route path="/login" element={!isAuthenticated ? (<Login setIsAuthenticated={setIsAuthenticated}/>) : <Navigate to ="/login"/>} />
+  <Route path="register" element={!isAuthenticated ? (<Registration setIsAuthenticated={setIsAuthenticated}/>) : <Navigate to ="/"/>} />
+
+*/
 /*
       <Route path="/" element={<Navigation />}>
         <Route path="/" element={<Login />} />

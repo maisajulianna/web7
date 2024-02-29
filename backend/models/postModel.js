@@ -10,20 +10,23 @@ const postSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    content: {
+        type: String,
+        required: true
+    },
+    attachment: {
+        type: String,
+        default: ""
+    },
     likes: {
         type: Number,
         default: 0
     },
-    comments: [{
-        type: String,
-        trim: true
-    }],
-    share: {
-        type: Boolean,
-        default: False
+    commentCount: {
+        type: Number,
+        default: 0
     }
 });
 
-const Post = mongoose.model("Post", postSchema);
 
-module.exports = Post;
+module.exports = mongoose.model("Post", postSchema);

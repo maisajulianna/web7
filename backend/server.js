@@ -17,7 +17,8 @@ app.use(express.json());
 app.get("/", (req, res) => res.send("API Running!"));
 
 // routes
-app.use("/users", userRouter);
+app.use("/api/user", userRouter);
+
 
 app.listen(port, () =>
   console.log(`Server is running on http://localhost:${port}`)

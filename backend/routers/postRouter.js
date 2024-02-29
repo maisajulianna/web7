@@ -25,8 +25,6 @@ router.get('/:id', getPostById);
 // update post 
 router.put('/:id', checkRole('user'), updatePost);
 
-
-
 //delete post
 router.delete('/:id', checkRole('user'), deletePost);
 

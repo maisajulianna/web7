@@ -7,6 +7,7 @@ import useField from "../hooks/useField";
 const SignupComponent = ({ setIsAuthenticated }) => {
   const emailInput = useField("email");
   const passwordInput = useField("password");
+  const password2Input = useField("password");
   const usernameInput = useField("text");
 
   const { handleSignup } = useSignup(setIsAuthenticated);
@@ -31,7 +32,12 @@ const SignupComponent = ({ setIsAuthenticated }) => {
       <label>
         Password:
         <input
-          type="password" {...passwordInput}/>
+          type="password" placeholder='Password' {...passwordInput}/>
+      </label>
+      <label>
+        Repeat Password:
+        <input
+          type="password2" placeholder='Again' {...passwordInput}/>
       </label>
       <br />
       
