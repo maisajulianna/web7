@@ -1,25 +1,10 @@
-require("dotenv").config();
-const express = require("express");
-const cors = require("cors");
-const connectDB = require("./config/db");
-const port = process.env.PORT || 4000;
+const app = require("./app");
+const http = require("http");
+const config = require("./utils/config");
+const logger = require("./utils/logger");
 
-const userRouter = require("./routers/userRouter");
-const app = express();
+const server = http.createServer(app);
 
-// connect to MongoDB
-connectDB();
-
-// middleware
-app.use(cors());
-app.use(express.json());
-
-app.get("/", (req, res) => res.send("API Running!"));
-
-// routes
-app.use("/api/user", userRouter);
-
-
-app.listen(port, () =>
-  console.log(`Server is running on http://localhost:${port}`)
-);
+server.listen(config.PORT, () => {
+    console.log("Server is listening on http://localhost:", config.PORT)
+  });

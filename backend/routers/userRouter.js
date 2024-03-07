@@ -19,7 +19,6 @@ router.post('/signup', signupUser)
 // login
 router.post('/login', loginUser)
 
-
 // get all users
 router.get('/', checkRole("user"), getUsers);
 

@@ -1,44 +1,37 @@
 const mongoose = require("mongoose");
-const ToPost = require("../models/postModel");
+const Post = require("../models/postModel");
 
-//Add a new Post
-const addPost = async (req, res) => {
-    const { title, description, user_id, attachment } = req.body;
-    
+
+// GET all posts
+const getPosts = async (req, res) => {
     try {
-        const user_id = req.user._id;
-        const newPost = new ToPost({ title, description, user_id, attachment });
+        const posts = await Post.find();
+        res.status(200).json(posts);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    };
+};
+
+// ADD a new post
+const addPost = async (req, res) => {
+    const { username } = req.user;
+
+    try {
+        const newPost = new Post({ ...req.body, author: username });
+        console.log(newPost);
         await newPost.save();
         res.status(201).json(newPost);
     } catch (error) {
-        res.status(409).json({ error: error });
+        res.status(409).json({ error: error.message });
     };
 };
 
-//Get all Posts
-const getPosts = async (req, res) => {
-    const user_id = req.query.user_id;
-
+// GET a post by post's ID
+const getPostById = async (req, res) => {
     try {
-        const posts = await ToPost.find({user_id}.sort({createdAt: -1}));
-        res.status(200).json(posts);
-    } catch (error) {
-        res.status(500).json({ error: error });
-    };
-};
-
-//Get Post by ID
-const getPostByID = async (req, res) => {
-    const { id } = req.params;
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).send("No Post with that ID");
-    };
-
-    try {
-        const user_id = req.user._id;
-        const post = await ToPost.findById(id);
+        const post = await Post.findById(req.params.id);
         if (!post) {
-            return res.status(404).send("No Post with that ID found");
+            return res.status(404).send("No post with that ID found");
         };
         res.status(200).json(post);
     } catch (error) {
@@ -46,46 +39,52 @@ const getPostByID = async (req, res) => {
     };
 };
 
-//Update Post by ID
+// GET all posts by username
+const getUsersPosts = async (req, res) => {
+    try {
+        const { username } = req.params;
+        const posts = await Post.find({ author: username });
+        res.json(posts);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+// UPDATE post by ID
 const updatePost = async (req, res) => {
-    const { id } = req.params;
     try {
-        const user_id = req.user._id;
-        const post = await ToPost.findByIdAndUpdate(
-            { _id: id, user_id: user_id },
-            { ...req.body },
-            { new: true });
+        const post = await Post.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            { new: true }
+            );
         if (!post) {
-            return res.status(404).send("No Post with that ID found");
+            return res.status(404).send("No post with that ID found");
         };
-        res.status(200).json(post);
+        res.status(200).send(post);
     } catch (error) {
-        console.log(error);
-        res.status(500).json({ error: "Server went bzzt, bzzt" });
+        res.status(500).send({ error: error.message });
     };
 };
 
-//Delete Post by ID
+// DELETE post by ID
 const deletePost = async (req, res) => {
-    const { id } = req.params;
-
     try {
-        const user_id = req.user._id;
-        const post = await ToPost.findByIdAndDelete({ _id: id, user_id: user_id });
+        const post = await Post.findByIdAndDelete(req.params.id);
         if (!post) {
-            return res.status(404).send("No Post with that ID found");
+            return res.status(404).send("No post with that ID found");
         };
-        res.status(200).json({ message: "Post Deleted" });
+        res.status(200).json({ message: "Post deleted successfully" });
     } catch (error) {
-        console.log(error);
-        res.status(500).json({ error: "Server went bzzt, bzzt" });
+        res.status(500).json({ error: error.message });
     };
 };
 
 module.exports = {
-    addPost,
     getPosts,
-    getPostByID,
+    addPost,
+    getPostById,
+    getUsersPosts,
     updatePost,
     deletePost
 };

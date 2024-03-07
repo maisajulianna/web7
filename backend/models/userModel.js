@@ -1,5 +1,6 @@
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
+const validator = require("validator");
 
 const userSchema = new mongoose.Schema({
     username: {
@@ -36,9 +37,10 @@ const userSchema = new mongoose.Schema({
 
 
 // static signup method
-userSchema.statics.signup = async function (email, password, password2) {
+userSchema.statics.signup = async function (username, email, password, password2) {
     // validation
-    if (!email || !password) {
+    console.log("username:", username, "email:", email, "pw:", password);
+    if (!username || !email) {
       throw Error("All fields must be filled");
     };
     if (!validator.isEmail(email)) {
@@ -51,13 +53,14 @@ userSchema.statics.signup = async function (email, password, password2) {
         throw Error("Passwords must match");
     };
   
-    const exists = await this.findOne({ email, username });
+    const exists = await this.findOne({ username, email });
   
+    if (exists.username){
+      throw Error("Username already in use");
+    };
+
     if (exists.email) {
       throw Error("Email already in use");
-    };
-    if (exists.username){
-        throw Error("Username already in use");
     };
   
     const salt = await bcrypt.genSalt(10);

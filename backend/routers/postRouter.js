@@ -7,25 +7,30 @@ const {
     getPosts,
     addPost,
     getPostById,
+    getUsersPosts,
     updatePost,
     deletePost
-} = require('../controllers/postControllers');
+} = require('../controllers/postController');
+
 
 //Activating Authentification for Routers
 
-// Get all posts
+// GET all posts
 router.get('/', getPosts);
 
-// Add a new post
-router.post('/', checkRole('user'|| 'admin' || 'moderator'), addPost);
+// ADD a new post
+router.post('/', checkRole( 'user' || 'admin' ), addPost);
 
-// Get post by ID
+// GET a post by its ID
 router.get('/:id', getPostById);
 
-// update post 
+// GET user's posts by username
+router.get('/:username', getUsersPosts);
+
+// UPDATE a post with PUT by its ID
 router.put('/:id', checkRole('user'), updatePost);
 
-//delete post
+// DELETE a post by its ID
 router.delete('/:id', checkRole('user'), deletePost);
 
 
