@@ -5,30 +5,25 @@ import { useNavigate } from 'react-router-dom';
 import useLogin  from "../hooks/useLogin";
 import useField from "../hooks/useField";
 
-const Login = ({ setIsAuthenticated }) => {
-  const emailInput = useField("text");
-  // const usernameInput = useField("text");
+const Login = () => {
+  const emailInput = useField("email");
   const passwordInput = useField("password");
   const navigate = useNavigate();
 
-  const { handleLogin } = useLogin();
-  console.log(emailInput.value, passwordInput.value);
+  const { handleLogin, isLoading, error } = useLogin();
 
-  const handler = async (e) => {
+  const handler = (e) => {
     e.preventDefault();
-    await handleLogin({ 
+    handleLogin({ 
       email: emailInput.value, 
       password: passwordInput.value
     });
-    /*if(!error){
-      setIsAuthenticated(true);
+    
+    if(!error){
+      // setIsAuthenticated(true);
       console.log("Login successful");
       navigate("/home");
-    };*/
-
-    setIsAuthenticated(true);
-    console.log("Login successful");
-    navigate("/home");
+    };
   };
   
   return (

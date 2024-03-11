@@ -5,14 +5,14 @@ import useSignup from "../hooks/useSignup";
 import useField from "../hooks/useField";
 import { useNavigate } from 'react-router-dom';
 
-const SignupComponent = ({ setIsAuthenticated }) => {
+const SignupComponent = () => {
+  const usernameInput = useField("text");
   const emailInput = useField("email");
   const passwordInput = useField("password");
   const password2Input = useField("password");
-  const usernameInput = useField("text");
-  const navigate = useNavigate();
 
-  const { handleSignup } = useSignup(setIsAuthenticated);
+  const navigate = useNavigate();
+  const { handleSignup } = useSignup();
 
   const handler = (e) => {
     e.preventDefault();
@@ -22,10 +22,11 @@ const SignupComponent = ({ setIsAuthenticated }) => {
       password2: password2Input.value,
       username: usernameInput.value
     });
+
     if (!e) {
-      console.log("Registration successful");
+      console.log("Signup successful");
     }
-    navigate("/");
+    navigate("/home");
   };
   
   return (
@@ -37,17 +38,14 @@ const SignupComponent = ({ setIsAuthenticated }) => {
       </label>
       <br />
       <label>
-        email:
         <input id="email" name="email" placeholder="Email" required {...emailInput} />
       </label>
       <br />
       <label>
-        Password:
-        <input placeholder='Password' {...passwordInput}/>
+        <input placeholder="Password" {...passwordInput}/>
       </label>
       <label>
-        Confirm Password:
-        <input placeholder='Password Again' {...password2Input}/>
+        <input placeholder="Confirm password" {...password2Input}/>
       </label>
       <br />
       

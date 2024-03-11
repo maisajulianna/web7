@@ -38,3 +38,18 @@ Initialize:
 
 - npm test -- -t "the name of a describe or it/test"
 
+## git things
+### to pull code from github
+download from green 'code' button
+
+or
+
+- git init
+- git remote add origin https://github.com/maisajulianna/web7.git
+- git checkout main
+- git pull
+
+### to test remote
+- git remote -v
+- git status
+
