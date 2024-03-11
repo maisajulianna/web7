@@ -23,8 +23,8 @@ const testPosts = [
 const testUser = {
     username: "john_smith",
     email: "john@smith.com",
-    password: "jlrs567@##",
-    password2: "jlrs567@##",
+    password: "jlRS567@##",
+    password2: "jlRS567@##",
 };
 
 const testAdmin = {
@@ -40,19 +40,20 @@ let token = null;
 beforeAll(async () => {
     await User.deleteMany({});
     const user = await api
-        .post("/api/users/signup")
+        .post("/api/user/signup")
         .send(testUser);
     token = user.body.token;
-    console.log("user:", user.body);
-    console.log("token:", token);
+    // console.log("user:", user.body);
+    // console.log("token:", token);
 });
 
-describe("Test Post API routes", () => {
+describe("Test post API routes", () => {
     describe("After a user is signed up", () => {
         beforeEach(async () => {
+            const username = testUser.username;
             await Post.deleteMany({});
             await api
-                .post("/api/posts/")
+                .post("/api/posts/" + username)
                 .set("Authorization", "bearer" + token)
                 .send(testPosts[0])
                 .send(testPosts[1]);
@@ -72,18 +73,25 @@ describe("Test Post API routes", () => {
         const newPost = {
             title: "New Post",
             content: "This is content.",
-            attachment: "",
-        };
+            attachment: ""
+            };
+        const username = testUser.username;
+        console.log("Creating newPost...");
+        console.log("token:", token);
+        console.log("username:", username);
+        console.log("newPost:", newPost);
         await api
-            .post("/api/posts")
+            .post("/api/posts/" + username)
             .set("Authorization", "bearer " + token)
             .send(newPost)
-            .expect(201);
+            .expect(200);
         });
         
         // GET a post by ID
         it("should return one post by its id", async () =>  {
             const post = await Post.findOne();
+            console.log("post:", post);
+            
             await api
                 .get("/api/posts/" + post._id)
                 .set("Authorization", "bearer " + token)
@@ -96,7 +104,7 @@ describe("Test Post API routes", () => {
             username = testUser.username;
             const post = await Post.find({ author: username });
             await api
-                .get("/api/posts/" + username)
+                .get("/api/posts/" + username + "/posts")
                 .set("Authorization", "bearer " + token)
                 .expect(200)
                 .expect("Content-Type", /application\/json/);

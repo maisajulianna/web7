@@ -10,7 +10,7 @@ function Start() {
       connections that extend beyond the classroom.</p>
 
       <p><br />Want to join us?<br />
-      <Link className="link-btn" to="/register">Register here!</Link>
+      <Link className="link-btn" to="/signup">Register here!</Link>
       </p>
 
       <p><br />Or<br /><br />

@@ -20,7 +20,6 @@ const getUsers = async (req, res) => {
 // add a new user
 const addUser = async (req, res) => {
   const { username, email, password, password2, role, pfp } = req.body;
-  console.log(req.body);
 
   try {
     if (!username || !email || !password || !password2) {

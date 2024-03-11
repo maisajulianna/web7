@@ -5,11 +5,12 @@ function Navbar({ setIsAuthenticated, isAuthenticated }) {
   const handleClick = () => {
     // remove user from storage
     localStorage.removeItem("user");
+    localStorage.removeItem("token");
     setIsAuthenticated(false);
   };
 
   return (
-    <nav classname="navbar">
+    <nav className="navbar">
     <ul>
         {isAuthenticated && (
         <li>

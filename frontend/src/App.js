@@ -1,16 +1,20 @@
 import React from 'react';
-import { useState } from 'react';
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Navigation from './components/Navigation';
-import Start from './components/Start';
-import Home from './components/Home';
-import Login from './components/Login';
-import Registration from './components/Registration';
-import Profile from './components/Profile';
-import NotFound from './components/NotFound';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+// pages
+import Start from './pages/Start';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Profile from './pages/Profile';
+import NotFound from './pages/NotFound';
 import Settings from './components/settings/Settings';
 
+// components
+import Navbar from './components/Navbar';
+import Navigation from './components/Navigation';
+
+// settings
 import SettingsNav from './components/settings/components/SettingsNav';
 import Account from './components/settings/components/Account';
 import Notifications from './components/settings/components/Notifications';
@@ -22,40 +26,47 @@ import './App.css'
 
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(
-    JSON.parse(localStorage.getItem("user")) || true
-  );
-return (
-  <BrowserRouter>
-    <Navbar
-      isAuthenticated={isAuthenticated}
-      setIsAuthenticated={setIsAuthenticated}
-    />
-    <Routes>
-    <Route path="/" element={<Navigation />}>
-        <Route index element={<Start />} />
-        <Route path="login" element={<Login /> } />
-        <Route path="register" element={<Registration />} />
-        <Route path="home" element={!isAuthenticated ? (<Login setIsAuthenticated={setIsAuthenticated}/>) : <Navigate to ="/home" />} />
-        <Route path="profile" element={<Profile />} />
-        <Route path="settings" element={<Settings />} />       
-        <Route path="*" element={<NotFound />} />
-      </Route>
-      <Route path="/settings/" element={<SettingsNav />}>
-        <Route index element={<Settings />} />
-        <Route path="account" element={<Account />} />
-        <Route path="notifs" element={<Notifications />} />
-        <Route path="blocked" element={<Blocked />} />
-        <Route path="privacy" element={<Privacy />} />
-        <Route path="terms" element={<Terms />} />
-        <Route path="help" element={<Help />} />
-        <Route path="*" element={<NotFound />} />
-      </Route>
-    </Routes>
-  </BrowserRouter>
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <div className="pages">
+          <Routes>
+            <Route path="/" element={<Navigation />}>
+              <Route index element={<Start />} />
+              <Route path="login" element={<Login /> } />
+              <Route path="signup" element={<Signup />} />
+              <Route path="home" element={<Home />} />
+              <Route path="profile" element={<Profile />} />
+              <Route path="settings" element={<Settings />} />       
+              <Route path="*" element={<NotFound />} />
+            </Route>
+            <Route path="/settings/" element={<SettingsNav />}>
+              <Route index element={<Settings />} />
+              <Route path="account" element={<Account />} />
+              <Route path="notifs" element={<Notifications />} />
+              <Route path="blocked" element={<Blocked />} />
+              <Route path="privacy" element={<Privacy />} />
+              <Route path="terms" element={<Terms />} />
+              <Route path="help" element={<Help />} />
+              <Route path="*" element={<NotFound />} />
+            </Route>
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </div>
   );
 };
 
+
+/*
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    JSON.parse(localStorage.getItem("user")) || true
+  );
+  <Navbar
+  isAuthenticated={isAuthenticated}
+  setIsAuthenticated={setIsAuthenticated}
+/>
+*/
 
 /*
   <Route path="/login" element={!isAuthenticated ? (<Login setIsAuthenticated={setIsAuthenticated}/>) : <Navigate to ="/login"/>} />

@@ -20,11 +20,6 @@ const userSchema = new mongoose.Schema({
         required: true,
         trim: true,
     },
-    password2: {
-        type: String,
-        required: true,
-        trim: true,
-    },
     role: {
         type: String,
         default: "user",
@@ -39,33 +34,43 @@ const userSchema = new mongoose.Schema({
 // static signup method
 userSchema.statics.signup = async function (username, email, password, password2) {
     // validation
-    console.log("username:", username, "email:", email, "pw:", password);
-    if (!username || !email) {
+    // console.log("username:", username, "email:", email, "pw:", password, "pw2:", password2);
+    
+    if (!username || !email ) {
       throw Error("All fields must be filled");
     };
+
     if (!validator.isEmail(email)) {
       throw Error("Email not valid");
     };
+
     if (!validator.isStrongPassword(password)) {
       throw Error("Password not strong enough");
     };
+
     if (password !== password2){
         throw Error("Passwords must match");
     };
-  
-    const exists = await this.findOne({ username, email });
-  
-    if (exists.username){
+    
+    // check if username already exists
+    const usernameExists = await this.findOne({ username });
+    if (usernameExists) {
       throw Error("Username already in use");
-    };
+    };  
 
-    if (exists.email) {
+    // check if email already exists
+    const emailExists = await this.findOne({ email });
+
+    if (emailExists) {
       throw Error("Email already in use");
     };
   
+    // hash the password
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(password, salt);
-    const user = await this.create({ email, password: hash });
+    const user = await this.create({ username, email, password: hash });
+    
+    console.log("User created!", user);
   
     return user;
 };

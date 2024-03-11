@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-const useLogin = (setIsAuthenticated) => {
+const useLogin = () => {
   const navigate = useNavigate();
 
   const handleLogin = async (email, password) => {
@@ -15,17 +15,16 @@ const useLogin = (setIsAuthenticated) => {
       });
 
       console.log(response);
+      const user = await response.json();
 
       if (response.ok) {
-        const user = await response.json();
-        console.log(user)
         localStorage.setItem("user", JSON.stringify(user));
         console.log("User logged in successfully!");
-        setIsAuthenticated(true);
-        navigate("/");
+        // setIsAuthenticated(true);
+        navigate("/home");
       } else {
         console.error("Login failed");
-      }
+      };
     } catch (error) {
       console.error("Error during login:", error);
     }
