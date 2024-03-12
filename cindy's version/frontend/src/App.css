@@ -1,0 +1,688 @@
+/*@import url(https://fonts.googleapis.com/css?family=Rubik);*/
+@font-face {
+    font-family: Rubik;
+    src: url(https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap);
+}
+
+  
+/* color variables */
+
+:root {
+    /* primary colors */
+    --pink: rgb(247, 85, 122);
+    --offwhite: #fffae3;
+    --turquoise: rgb(153, 225, 217);
+    --blue: rgb(88, 119, 146);
+    --dark-violet: #5d576b;
+    --light-violet: #787187;
+
+    /* secondary colors */
+    --dark-pink: #cb4161;
+    --dark-turquoise: #6db1aa;
+    --light-pink: #f758b0;
+    --light-turquoise: #cceede;
+    --light-white: #ebf5ee;
+    --transparent-white: rgba(235, 245, 238, 0.9);
+    --pretty-black: #333333;
+}
+
+/* global */
+
+body {
+    font-family: Rubik, Arial, Helvetica, sans-serif;
+    display: flex;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items vertically */
+    padding: 1rem;
+    
+    background-color: var(--dark-violet);
+}
+
+/*
+move content right to avoid nav overlap:
+margin-left: 8rem;
+*/
+
+/* 
+==================
+navigation styles 
+==================
+*/
+
+.navbar, .setnav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding: 1rem;
+    background-color: var(--light-violet);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+  }
+  
+  .all-navs li {
+    margin-bottom: 2.5rem;
+  }
+
+  #nav-logo {
+    width: 2em;
+  }
+  
+  li a:not(#logo-link, #nav-home, #nav-login){
+    text-decoration: none;
+    color: var(--pretty-black);
+    border: 2px solid var(--turquoise);
+    border-radius: 25px;
+    background-color: var(--turquoise);
+    padding: 9px 15px 9px 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  }
+  
+  li a:hover:not(#logo-link), #nav-logo:hover {
+    cursor: pointer;
+    background-color: var(--pink);
+    /*padding: 9px 25px 9px 25px;*/
+    color: white
+  }
+
+
+  #nav-home, #nav-login, #nav-logo {
+    text-decoration: none;
+    color: var(--pretty-black);
+    border: 2px solid var(--offwhite);
+    border-radius: 25px;
+    background-color: var(--offwhite);
+    padding: 9px 15px 9px 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  }
+
+
+  #nav-login, #nav-home { /* moves btns to the bottom of the nav */
+    bottom: 0;
+    position: absolute;
+    margin-bottom: 3rem;
+  }
+
+  .nav-options {
+    margin-bottom: 2.5rem
+  }
+
+/* 
+==================
+start page styles 
+==================
+*/
+
+.start {
+    text-align: center;
+    color: var(--offwhite);
+    margin: 2em;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.start .link-btn {
+    color: var(--turquoise);
+}
+
+
+/* 
+==================
+login page styles 
+==================
+*/
+
+.login-box {
+    border: 2px solid var(--light-white);
+    background-color: var(--transparent-white);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 30px;
+
+    height: auto;
+    width: 100%;
+
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.login-box input {
+    padding: 5px;
+    margin: 4px;
+    border-radius: 8px;
+    background-color: var(--turquoise);
+    width: 80%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    font-family: Rubik, Arial, Helvetica, sans-serif;
+}
+
+.login-box input:hover {
+    background-color: var(--dark-turquoise);
+    cursor: default;
+}
+
+.login-box input:focus {
+    cursor: text;
+}
+
+.buttons {
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.pink-btn, .turq-btn {
+    margin: 4px;
+    padding: 10px;
+    border-radius: 7px;
+    cursor: pointer;
+    width: 5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    font-family: Rubik, Arial, Helvetica, sans-serif;
+    font-size: small;
+    text-decoration: none;
+    color: black
+}
+
+.turq-btn {
+    background-color: var(--turquoise);
+    border: 2px solid var(--turquoise);
+}
+
+.pink-btn {
+    background-color: var(--pink);
+    border: 2px solid var(--pink);
+}
+
+.turq-btn:hover {
+    background-color: var(--dark-turquoise);
+}
+
+.pink-btn:hover {
+    background-color: var(--dark-pink);
+}
+
+.link-btn {
+    text-decoration: none;
+    color: black;
+}
+
+.link-btn:hover {
+    color: var(--pink);
+}
+
+/* 
+==================
+home page styles 
+==================
+*/
+
+.home {
+    text-align: center;
+    justify-content: center;
+    color: var(--offwhite);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+    width: 100%;
+}
+.home-header {
+    position: fixed;
+    top: 0;
+    left: 8em;
+    width: 100%;
+    height: 5em;
+    box-sizing: border-box;
+    z-index: 1000;
+    background-color: var(--dark-violet);
+    box-shadow: 3px 2px 6px rgba(0, 0, 0, 0.6);
+}
+.content {
+    display: flex;
+    margin-top: 6rem;
+}
+.content section {
+    background-color: var(--offwhite);
+    border-radius: 8px;
+    box-sizing: border-box;
+    flex: 1;
+
+    padding: 1rem;
+    margin: 1rem;
+    height: 800px;
+    width: 120px;
+}
+
+.content p {
+    color: var(--offwhite);
+    background-color: var(--blue);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* 
+==================
+profile page styles 
+==================
+*/
+
+.profile {
+    text-align: center;
+}
+.profile h2 {
+    color: var(--offwhite);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+.profile-content {
+    display: flex;
+    color: var(--pretty-black);
+}
+.profile section {
+    flex: 1;
+    box-sizing: border-box;
+    border-radius: 8px;
+
+    padding: 1rem;
+    margin: 1rem;
+    height: 600px;
+    width: 200px;
+}
+.posts {
+    background-color: var(--offwhite);
+}
+
+.posts p {
+    color: var(--offwhite);
+    background-color: var(--blue);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.bio {
+    background-color: var(--offwhite);
+}
+
+.bio p {
+    color: var(--offwhite);
+    background-color: var(--pink);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* 
+==================
+settings page styles 
+==================
+*/
+
+.settings, .account, .notifs, .blocked, .privacy, .terms, .help {
+    padding-left: 0;
+    margin-left: 8rem;
+    text-align: center;
+    color: var(--offwhite);
+    background-color: var(--dark-violet);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+
+/* #account {
+    background-color:rgb(153, 225, 217);
+    border-radius: 25px;
+    display: block;
+    font-size: 35px;
+    margin: 20px 20px 0 0;
+    text-decoration: none;
+    color: var(--dark-violet);
+    border: 5px solid var(--turquoise);
+    border-radius: 25px;
+    background-color: var(--turquoise);
+    padding: 9px 15px 9px 15px;
+    cursor: pointer;
+    font-family: 'Rubik', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+} */
+  
+/* 
+---- Settings blocked page styles ----
+ */
+
+ .blocked input {
+    padding: 5px;
+    margin: 4px;
+    border-radius: 8px;
+    background-color: var(--turquoise);
+    width: 80%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: inline-block;
+}
+
+.blocked input:hover {
+    background-color: var(--dark-turquoise);
+    cursor: default;
+}
+
+.blocked button {
+
+    padding: 10px;
+    border-radius: 7px;
+    cursor: pointer;
+    width: 5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: small;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+}
+
+.blocked button:hover {
+    background-color: var(--pink);
+}
+
+.block-users {
+    background-color: var(--light-violet);
+    border: 2px solid var(--light-violet);
+    border-radius: 25px;
+    padding: 9px 120px 9px 120px;
+    margin: 10px 10px 50px 10px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.block-words {
+    background-color: var(--light-violet);
+    border: 2px solid var(--light-violet);
+    border-radius: 25px;
+    padding: 9px 120px 9px 120px;
+    margin: 10px 10px 50px 10px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.all-users li {
+    margin-bottom: 1rem;
+}
+
+.all-users li button {
+    margin-right: 1rem;
+}
+
+.all-words li {
+    margin-bottom: 1rem;
+}
+
+.all-words li button {
+    margin-right: 1rem;
+}
+
+/*
+----Terms of use page styles---- 
+*/
+
+.terms {
+    padding-left: 0;
+    margin: 1rem 11rem 1rem 21rem;
+    text-align: center;
+    color: var(--offwhite);
+    background-color: var(--dark-violet);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.terms p {
+    padding-bottom: 40px;
+    margin: 10px;
+    font-size: 17px;
+    
+}
+
+
+
+/*
+
+----Background----
+
+*/
+
+body {
+	background:
+    radial-gradient(black 3px, transparent 4px),
+    radial-gradient(black 3px, transparent 4px),
+    linear-gradient(var(--dark-violet) 4px, transparent 0),
+    linear-gradient(45deg, transparent 74px, transparent 75px, #a4a4a4 75px, #a4a4a4 76px, transparent 77px, transparent 109px),
+    linear-gradient(-45deg, transparent 75px, transparent 76px, #a4a4a4 76px, #a4a4a4 77px, transparent 78px, transparent 109px),
+    var(--dark-violet);
+    background-size: 109px 109px, 109px 109px,100% 6px, 109px 109px, 109px 109px;
+    background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+}
+
+
+/*
+----Account settings page styles----
+*/
+
+.account-header {
+    margin: 1rem 0rem 2rem 1rem;
+}
+
+.account {
+    margin: 1rem 0rem 1rem 15rem;
+    display: flex;
+    
+}
+
+.account-settings {
+    text-align: left;
+    z-index:1;
+    color: var(--offwhite);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: var(--light-violet);
+    border: 2px solid var(--light-violet);
+    border-radius: 25px;
+    padding-left: 1rem;
+    padding-bottom: 50rem;
+    padding-right: 2rem;
+    margin: 1rem;
+    margin-right: 5rem;
+    height: 350px;
+    width: 350px;
+    
+}
+
+.account-settings button {
+    border-radius: 7px;
+    cursor: pointer;
+    width: 5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: small;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    margin-bottom: 1rem
+}
+
+.account-settings button:hover {
+    background-color: var(--pink);
+}
+
+.deactivate {
+    background-color:rgb(188, 72, 72);
+    
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    position: fixed; /* Make sure it's above other elements */
+  }
+  
+  .notification {
+    background: var(--turquoise);
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.423);
+    text-align: center;
+    color:rgba(0, 0, 0, 0.848);
+    font-weight: bold;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+  
+  .notification-buttons {
+    margin-top: 10px;
+    
+    
+  }
+  
+  .notification-buttons button {
+    margin: 0 10px;
+    border-radius: 7px;
+    cursor: pointer;
+    width: 5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: small;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    margin-bottom: 1rem
+  }
+
+    .notification-buttons button:hover {
+        background-color: var(--pink);
+    }
+
+  .divider {
+    height: 2px;
+    background-color: #ddd; /* Light gray color for the line */
+    margin: 13px 0; /* Adjust as needed */
+  }
+
+  .new-password {
+    display:block;
+    margin: 7px 7px 7px 0px;
+  }
+
+  .account-settings input {
+    padding: 5px;
+    margin-bottom: 19px;
+    border-radius: 8px;
+    background-color: var(--turquoise);
+    width: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: block;
+}
+
+.account-settings input:hover {
+    background-color: var(--dark-turquoise);
+    cursor: default;
+}
+
+.profile-preview {
+    justify-content: center;
+    align-items: center;
+    padding-right: auto;
+    width: 700px;
+    height: 800px;
+    margin: 1rem 1rem 1rem 0rem;
+    text-align: left;
+    color: var(--offwhite);
+    background-color: var(--dark-violet);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: var(--light-violet);
+    border: 2px solid var(--light-violet);
+    border-radius: 25px;
+    z-index: 2;
+
+
+  }
+
+  .profile-pic {
+    border-radius: 50%;
+    margin: 1rem 1rem 1rem 1rem;
+    max-width: 30%; /* Limit the maximum width of the image to its parent container */
+    height: auto; /* Ensure the height adjusts proportionally based on the width */
+    z-index: 3; /* Ensure the profile picture is above the background */
+}
+
+  .set-username {
+    display: block;
+    font-size: 40px;
+    margin: 7px 7px 7px 0px;
+    padding-left: 1rem
+  }
+
+  .set-email {
+    display: block;
+    font-size: 20px;
+    margin: 7px 7px 7px 0px;
+    padding-left: 1.2rem
+  }
+
+  .profile-header {
+  position: absolute;
+  top: 3rem;
+  left: 48rem;
+  width: 46.35%;
+  height: 25%;
+  z-index: -2; /* Ensure the background is behind other content */
+  border-radius: 25px 25px 0 0
+}
+
+.set-post {
+    background-color: var(--offwhite);
+    border: 2px solid var(--offwhite);
+    border-radius: 25px;
+    height: 45%;
+    width: 80%;
+    justify-content: center;
+    margin: 1rem 1rem 1rem 1rem;
+}
+
+.post-appear {
+    display: block;
+    font-size: 25px;
+    margin: 7px 7px 7px 0px;
+    padding-left: 1rem;
+    color: var( --dark-violet);
+    font-weight: bold;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0);
+}
+
+.placeholder {
+    display: block;
+    font-size: 30px;
+    margin: 7px 7px 7px 0px;
+    padding-left: 1rem;
+    color: var(--turquoise);
+    font-weight: bold;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0);
+}
