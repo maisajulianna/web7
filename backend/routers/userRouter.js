@@ -20,7 +20,7 @@ router.post('/signup', signupUser)
 router.post('/login', loginUser)
 
 // get all users
-router.get('/', checkRole("user"), getUsers);
+router.get('/', checkRole("admin"), getUsers);
 
 // add a new user
 router.post('/', addUser);

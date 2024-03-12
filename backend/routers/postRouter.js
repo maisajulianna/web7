@@ -16,12 +16,13 @@ const {
 
 //Activating Authentification for Routers
 router.use(checkAuth);
+router.use(checkRole('user'));
 
 // GET all posts
 router.get('/', getPosts);
 
 // ADD a new post
-router.post('/:username', checkRole( 'user' || 'admin' ), addPost);
+router.post('/:username', addPost);
 
 // GET a post by its ID
 router.get('/:id', getPostById);
@@ -30,10 +31,10 @@ router.get('/:id', getPostById);
 router.get('/:username/posts', getUsersPosts);
 
 // UPDATE a post with PUT by its ID
-router.put('/:id', checkRole('user'), updatePost);
+router.put('/:id', updatePost);
 
 // DELETE a post by its ID
-router.delete('/:id', checkRole('user' || 'admin'), deletePost);
+router.delete('/:id', deletePost);
 
 
 module.exports = router;

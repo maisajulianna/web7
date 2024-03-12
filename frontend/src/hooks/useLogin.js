@@ -1,38 +1,39 @@
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const useLogin = () => {
   const navigate = useNavigate();
+  const url = "http://localhost:4000/api/user/login";
 
-  const handleLogin = async (email, password) => {
-    console.log(email, password)
-    try {
-      const response = await fetch("/api/user/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password })
-      });
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(null);
 
-      console.log(response);
-      const user = await response.json();
+  const handleLogin = async (object) => {
+    setIsLoading(true);
+    setError(null);
+    const response = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(object),
+    });
+    console.log("3");
+    const user = await response.json();
 
-      if (response.ok) {
-        localStorage.setItem("user", JSON.stringify(user));
-        console.log("User logged in successfully!");
-        // setIsAuthenticated(true);
-        navigate("/home");
-      } else {
-        console.error("Login failed");
-      };
-    } catch (error) {
-      console.error("Error during login:", error);
+    console.log("4");
+    if (!response.ok) {
+      setError(user.error);
+      setIsLoading(false);
+      return error;
     }
+
+    console.log("5");
+    localStorage.setItem("token", user.token);
+    localStorage.setItem("user", JSON.stringify(user));
+    console.log("User logged in successfully!");
+    navigate("/home");
   };
 
-  return {
-    handleLogin,
-  };
+  return { handleLogin, isLoading, error };
 };
 
 export default useLogin;

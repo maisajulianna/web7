@@ -15,7 +15,6 @@ const signupUser = async (req, res) => {
 
     // create a token
     const token = createToken(user._id);
-    //localStorage.setItem("idtoken", token);
 
     res.status(200).json({username, email, token});
   } catch (error) {

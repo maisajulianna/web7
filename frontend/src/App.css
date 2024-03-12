@@ -75,6 +75,10 @@ navigation styles
     padding: 0;
     margin-top: 1rem;
   }
+
+  .navbar li {
+    margin-bottom: 2.5rem;
+  }
   
   .all-navs li {
     margin-bottom: 2.5rem;
@@ -84,7 +88,7 @@ navigation styles
     width: 2em;
   }
   
-  li a:not(#logo-link, #nav-home, #nav-login){
+  li a:not(#logo-link, #nav-home, #nav-login, #nav-logout){
     text-decoration: none;
     color: var(--pretty-black);
     border: 2px solid var(--turquoise);
@@ -94,7 +98,7 @@ navigation styles
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   }
   
-  li a:hover:not(#logo-link), #nav-logo:hover {
+  li a:hover:not(#logo-link), #nav-logo:hover, #nav-logout:hover {
     cursor: pointer;
     background-color: var(--pink);
     /*padding: 9px 25px 9px 25px;*/
@@ -102,7 +106,7 @@ navigation styles
   }
 
 
-  #nav-home, #nav-login, #nav-logo {
+  #nav-home, #nav-login, #nav-logo, #nav-logout {
     text-decoration: none;
     color: var(--pretty-black);
     border: 2px solid var(--offwhite);
@@ -113,7 +117,7 @@ navigation styles
   }
 
 
-  #nav-login, #nav-home { /* moves btns to the bottom of the nav */
+  #nav-login, #nav-home, #nav-logout { /* moves btns to the bottom of the nav */
     bottom: 0;
     position: absolute;
     margin-bottom: 3rem;
@@ -121,6 +125,10 @@ navigation styles
 
   .nav-options {
     margin-bottom: 2.5rem
+  }
+
+  #nav-logout {
+    font-family: Rubik, Arial, Helvetica, sans-serif;
   }
 
 /* 

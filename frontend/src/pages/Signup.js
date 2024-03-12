@@ -1,18 +1,17 @@
 // components/Registration.js
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import React from 'react';
 import useSignup from "../hooks/useSignup";
 import useField from "../hooks/useField";
-import { useNavigate } from 'react-router-dom';
 
 const SignupComponent = ({ setIsAuthenticated }) => {
+  const usernameInput = useField("text");
   const emailInput = useField("email");
   const passwordInput = useField("password");
   const password2Input = useField("password");
-  const usernameInput = useField("text");
   const navigate = useNavigate();
 
-  const { handleSignup } = useSignup(setIsAuthenticated);
+  const { handleSignup } = useSignup();
 
   const handler = (e) => {
     e.preventDefault();
@@ -33,22 +32,18 @@ const SignupComponent = ({ setIsAuthenticated }) => {
       <h2>Sign up</h2>
       <p>Please fill the form to register.</p>
       <label>
-      username:
         <input id="username" placeholder="Username" required {...usernameInput}/>     
       </label>
       <br />
       <label>
-        email:
         <input id="email" name="email" placeholder="Email" required {...emailInput} />
       </label>
       <br />
       <label>
-        Password:
         <input placeholder='Password' {...passwordInput}/>
       </label>
       <label>
-        Confirm Password:
-        <input placeholder='Password Again' {...password2Input}/>
+        <input placeholder='Confirm Password' {...password2Input}/>
       </label>
       <br />
       

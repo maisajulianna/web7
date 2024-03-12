@@ -3,9 +3,9 @@ import logo from '../logo_small.png';
 const { useNavigate } = require("react-router-dom");
 
 const Navigation = () => {
-    console.log(localStorage)
-    const token = localStorage.getItem("token ");
-    console.log(token);
+    const token = localStorage.getItem("token");
+    console.log("token from nav:", token);
+
     const navigate = useNavigate();
     const logout = () => {
         localStorage.removeItem("user");
