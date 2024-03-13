@@ -1,0 +1,352 @@
+/*@import url(https://fonts.googleapis.com/css?family=Rubik);*/
+@font-face {
+    font-family: Rubik;
+    src: url(https://fonts.googleapis.com/css?family=Rubik);
+}
+
+
+/* color variables */
+
+:root {
+    /* primary colors */
+    --pink: rgb(247, 85, 122);
+    --offwhite: #fffae3;
+    --turquoise: rgb(153, 225, 217);
+    --blue: rgb(88, 119, 146);
+    --dark-violet: #5d576b;
+    --light-violet: #787187;
+
+    /* secondary colors */
+    --dark-pink: #cb4161;
+    --dark-turquoise: #6db1aa;
+    --light-pink: #f758b0;
+    --light-turquoise: #cceede;
+    --light-white: #ebf5ee;
+    --transparent-white: rgba(235, 245, 238, 0.9);
+    --pretty-black: #333333;
+}
+
+/* global */
+
+body {
+    font-family: Rubik, Arial, Helvetica, sans-serif;
+    display: flex;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items vertically */
+    padding: 1rem;
+    
+    background-color: var(--dark-violet);
+}
+
+/*
+move content right to avoid nav overlap:
+margin-left: 8rem;
+*/
+
+/* 
+==================
+navigation styles 
+==================
+*/
+
+.navbar, .setnav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 6em;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding: 1rem;
+    background-color: var(--light-violet);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+  }
+  
+  li {
+    margin-bottom: 2.5rem;
+  }
+
+  #nav-logo {
+    width: 2em;
+  }
+  
+  li a:not(#logo-link, #nav-home, #nav-login){
+    text-decoration: none;
+    color: var(--pretty-black);
+    border: 2px solid var(--turquoise);
+    border-radius: 25px;
+    background-color: var(--turquoise);
+    padding: 9px 15px 9px 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  }
+  
+  li a:hover:not(#logo-link), #nav-logo:hover {
+    cursor: pointer;
+    background-color: var(--pink);
+    /*padding: 9px 25px 9px 25px;*/
+    color: white
+  }
+
+
+  #nav-home, #nav-login, #nav-logo {
+    text-decoration: none;
+    color: var(--pretty-black);
+    border: 2px solid var(--offwhite);
+    border-radius: 25px;
+    background-color: var(--offwhite);
+    padding: 9px 15px 9px 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  }
+
+
+  #nav-login, #nav-home { /* moves btns to the bottom of the nav */
+    bottom: 0;
+    position: absolute;
+    margin-bottom: 3rem;
+  }
+
+/* 
+==================
+start page styles 
+==================
+*/
+
+.start {
+    text-align: center;
+    color: var(--offwhite);
+    margin: 2em;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.start .link-btn {
+    color: var(--turquoise);
+}
+
+
+/* 
+==================
+login page styles 
+==================
+*/
+
+.login-box {
+    border: 2px solid var(--light-white);
+    background-color: var(--transparent-white);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 30px;
+
+    height: auto;
+    width: 100%;
+
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.login-box input {
+    padding: 5px;
+    margin: 4px;
+    border-radius: 8px;
+    background-color: var(--turquoise);
+    width: 80%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    font-family: Rubik, Arial, Helvetica, sans-serif;
+}
+
+.login-box input:hover {
+    background-color: var(--dark-turquoise);
+    cursor: default;
+}
+
+.login-box input:focus {
+    cursor: text;
+}
+
+.buttons {
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.pink-btn, .turq-btn {
+    margin: 4px;
+    padding: 10px;
+    border-radius: 7px;
+    cursor: pointer;
+    width: 5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    font-family: Rubik, Arial, Helvetica, sans-serif;
+    font-size: small;
+    text-decoration: none;
+    color: black
+}
+
+.turq-btn {
+    background-color: var(--turquoise);
+    border: 2px solid var(--turquoise);
+}
+
+.pink-btn {
+    background-color: var(--pink);
+    border: 2px solid var(--pink);
+}
+
+.turq-btn:hover {
+    background-color: var(--dark-turquoise);
+}
+
+.pink-btn:hover {
+    background-color: var(--dark-pink);
+}
+
+.link-btn {
+    text-decoration: none;
+    color: black;
+}
+
+.link-btn:hover {
+    color: var(--pink);
+}
+
+/* 
+==================
+home page styles 
+==================
+*/
+
+.home {
+    text-align: center;
+    justify-content: center;
+    color: var(--offwhite);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+    width: 100%;
+}
+.home-header {
+    position: fixed;
+    top: 0;
+    left: 8em;
+    width: 100%;
+    height: 5em;
+    box-sizing: border-box;
+    z-index: 1000;
+    background-color: var(--dark-violet);
+    box-shadow: 3px 2px 6px rgba(0, 0, 0, 0.6);
+}
+.content {
+    display: flex;
+    margin-top: 6rem;
+}
+.content section {
+    background-color: var(--offwhite);
+    border-radius: 8px;
+    box-sizing: border-box;
+    flex: 1;
+
+    padding: 1rem;
+    margin: 1rem;
+    height: 800px;
+    width: 120px;
+}
+
+.content p {
+    color: var(--offwhite);
+    background-color: var(--blue);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* 
+==================
+profile page styles 
+==================
+*/
+
+.profile {
+    text-align: center;
+}
+.profile h2 {
+    color: var(--offwhite);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+.profile-content {
+    display: flex;
+    color: var(--pretty-black);
+}
+.profile section {
+    flex: 1;
+    box-sizing: border-box;
+    border-radius: 8px;
+
+    padding: 1rem;
+    margin: 1rem;
+    height: 600px;
+    width: 200px;
+}
+.posts {
+    background-color: var(--offwhite);
+}
+
+.posts p {
+    color: var(--offwhite);
+    background-color: var(--blue);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.bio {
+    background-color: var(--offwhite);
+}
+
+.bio p {
+    color: var(--offwhite);
+    background-color: var(--pink);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* 
+==================
+settings page styles 
+==================
+*/
+
+.settings, .account, .notifs, .blocked, .privacy, .terms, .help {
+    padding-left: 0;
+    margin-left: 8rem;
+    text-align: center;
+    color: var(--offwhite);
+    background-color: var(--dark-violet);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+
+/* #account {
+    background-color:rgb(153, 225, 217);
+    border-radius: 25px;
+    display: block;
+    font-size: 35px;
+    margin: 20px 20px 0 0;
+    text-decoration: none;
+    color: var(--dark-violet);
+    border: 5px solid var(--turquoise);
+    border-radius: 25px;
+    background-color: var(--turquoise);
+    padding: 9px 15px 9px 15px;
+    cursor: pointer;
+    font-family: 'Rubik', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+} */
+  
