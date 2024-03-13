@@ -257,6 +257,7 @@ home page styles
     background-color: var(--dark-violet);
     box-shadow: 3px 2px 6px rgba(0, 0, 0, 0.6);
 }
+
 .content, .uploadPost {
     margin-top: 6rem;
     width: 50%;
@@ -266,6 +267,15 @@ home page styles
     background-color: var(--blue);
     border-radius: 10px;
     padding: 10px;
+}
+.post {
+    background-color: var(--offwhite);
+    color: var(--pretty-black);
+    border-radius: 8px;
+    box-sizing: border-box;
+
+    padding: 1.5rem;
+    margin: 1rem;
 }
 .actions {
     display: flex;
@@ -298,16 +308,7 @@ fill: var(--dark-pink); /* Change the fill color when clicked */
 .heart-button:focus svg {
 fill: var(--dark-pink);
 }
-  
-.post {
-    background-color: var(--offwhite);
-    color: var(--pretty-black);
-    border-radius: 8px;
-    box-sizing: border-box;
 
-    padding: 1.5rem;
-    margin: 1rem;
-}
 .post-form {
     background-color: var(--offwhite);
     color: var(--pretty-black);
@@ -327,6 +328,23 @@ fill: var(--dark-pink);
     font-family: Rubik, Arial, Helvetica, sans-serif;
     color: var(--offwhite);
     display: inline-block;
+}
+.blue-btn {
+    margin: 4px;
+    padding: 10px;
+    border-radius: 7px;
+    cursor: pointer;
+    width: 5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    font-family: Rubik, Arial, Helvetica, sans-serif;
+    font-size: small;
+    text-decoration: none;
+    color: var(--offwhite);
+    background-color: var(--blue);
+    border: 2px solid var(--blue);
+}
+.blue-btn:hover {
+    color: var(--pretty-black);
 }
 
 /* attachment button */

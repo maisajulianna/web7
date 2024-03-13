@@ -74,11 +74,12 @@ function Home() {
                     placeholder="attachment"
                     title="attachment"
                     type="file"
+                    multiple="multiple" accept="image/jpg, image/jpeg, image/png"
                     value={attachment}
                     onChange={(e) => setAttachment(e.target.value)}
                 /><span>attachment</span></label>
                 
-                <button className="turq-btn" >Submit</button>
+                <button className="blue-btn">Submit</button>
             </form>
         </div>
       </div>
