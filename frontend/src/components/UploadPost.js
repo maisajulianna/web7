@@ -12,8 +12,9 @@ const UploadPost = () => {
     // const likes = 0;
     // const commentCount = 0;
 
-    const url = "/api/posts" + author;
+    const url = "/api/posts/" + author;
     console.log("author:", author);
+    console.log(url);
 
     const handleSubmit = async () => {
 
@@ -24,7 +25,7 @@ const UploadPost = () => {
             body: JSON.stringify(post),
             headers: {
                 "Content-Type": "application/json",
-                Authorization: "Bearer " + localStorage.getItem("token")
+                "Authorization": "Bearer " + localStorage.getItem("token")
             },
         });
 
@@ -40,7 +41,7 @@ const UploadPost = () => {
 
             console.log("Post created: ", json);
         };
-
+        
         return (
             <div className="post-form">
                 <h2>Upload a new post</h2>
