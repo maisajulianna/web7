@@ -262,52 +262,93 @@ home page styles
     margin-top: 6rem;
     width: 50%;
 }
-.content p {
-    color: var(--offwhite);
-    background-color: var(--blue);
-    border-radius: 10px;
-    padding: 10px;
-}
 .post {
     background-color: var(--offwhite);
-    color: var(--pretty-black);
     border-radius: 8px;
     box-sizing: border-box;
 
     padding: 1.5rem;
     margin: 1rem;
 }
-.actions {
-    display: flex;
-    justify-content: center;
-}
-#likes, #comments {
-    background-color: var(--dark-turquoise);
+.content h3 {
+    text-align: left;
+    border: 2px solid var(--pretty-black);
+    background-color: var(--pretty-black);
     border-radius: 5px;
-    padding: 8px;
-    margin: 10px;
-    width: 10px;
-    display: flex;
-    flex-direction: row;
+    padding: 10px 0 10px 8px;
+    margin: 0;
 }
+.content h4 {
+    color: var(--pretty-black);
+    margin: 0;
+    padding: 10px 0 10px 0;
+}
+.content p:not(.likes-box p){
+    color: var(--offwhite);
+    background-color: var(--blue);
+    border-radius: 10px;
+    margin: 0;
+    padding: 10px;
+}
+.likes-box {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+
+    border: 2px solid var(--pretty-black);
+    border-radius: 10px;
+    margin-top: 10px;
+
+    color: var(--pretty-black);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+.likes-box .likes {
+    background-color: black;
+    border-radius: 5px;
+    width: 10px;
+}
+
+/* heart icon */
 .heart-button {
     border: none;
     background: none;
     cursor: pointer;
+    padding: 0;
 }
 .heart-button svg {
-width: 24px;
-height: 24px;
-stroke: #000;
-transition: transform 0.3s ease;
+    width: 20px;
+    height: 20px;
+    stroke: var(--pretty-black);
+    transition: transform 0.3s ease;
 }
 .heart-button svg.clicked {
-transform: scale(1.2);
-fill: var(--dark-pink); /* Change the fill color when clicked */
+    transform: scale(1.2);
+    fill: var(--dark-pink); /* Change the fill color when clicked */
+}
+.heart-button:hover svg {
+    fill: var(--pink);
 }
 .heart-button:focus svg {
-fill: var(--dark-pink);
+    fill: var(--dark-pink);
 }
+
+/* comment icon */
+.comment-button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+}
+.comment-button svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--pretty-black);
+    transition: transform 0.3s ease;
+}
+.comment-button:hover svg {
+    fill: var(--turquoise); /* Change fill color on hover if needed */
+}
+
 
 .post-form {
     background-color: var(--offwhite);
@@ -317,17 +358,23 @@ fill: var(--dark-pink);
     padding: 1.5rem;
     margin: 1rem;
 }
+.post-form h3 {
+    margin: 0;
+    padding: 5px 0 15px 0;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
 .post-form input, #post-content, .file {
+    width: 90%;
     padding: 5px;
-    margin: 4px;
+    margin: 5px;
+    display: inline-block;
+
+    color: var(--offwhite);
     border-radius: 8px;
     border: 2px solid var(--pretty-black);
     background-color: var(--blue);
-    width: 80%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
-    font-family: Rubik, Arial, Helvetica, sans-serif;
-    color: var(--offwhite);
-    display: inline-block;
+    font-family: Rubik, Arial, Helvetica, sans-serif;   
 }
 .blue-btn {
     margin: 4px;
@@ -371,7 +418,6 @@ label.file input[type="file"] {
 profile page styles 
 ==================
 */
-
 .profile {
     text-align: center;
 }
@@ -429,6 +475,23 @@ settings page styles
     background-color: var(--dark-violet);
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
+
+
+/* #account {
+    background-color:rgb(153, 225, 217);
+    border-radius: 25px;
+    display: block;
+    font-size: 35px;
+    margin: 20px 20px 0 0;
+    text-decoration: none;
+    color: var(--dark-violet);
+    border: 5px solid var(--turquoise);
+    border-radius: 25px;
+    background-color: var(--turquoise);
+    padding: 9px 15px 9px 15px;
+    cursor: pointer;
+    font-family: 'Rubik', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+} */
   
 /* 
 ---- Settings blocked page styles ----
@@ -451,6 +514,7 @@ settings page styles
 }
 
 .blocked button {
+
     padding: 10px;
     border-radius: 7px;
     cursor: pointer;
@@ -543,6 +607,7 @@ body {
     background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
 }
 
+
 /*
 ----Account settings page styles----
 */
@@ -574,6 +639,7 @@ body {
     margin-right: 5rem;
     height: 350px;
     width: 350px;
+    
 }
 
 .account-settings button {
@@ -759,4 +825,244 @@ body {
     font-weight: bold;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0);
+}
+
+/*
+
+----Notifications page styles----
+
+*/
+
+.slidecontainer {
+    position: relative;
+    margin-left: 11rem;
+    width: 165px;
+    margin-right: 1rem;
+    margin-top: 1rem;
+  }
+
+.slidecontainer input {
+    align-self: flex-end;
+    margin-left: 0;
+}
+
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 45px;
+    border-radius: 25px;  
+    background: var(--turquoise);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 70px;
+    height: 70px;
+    border: 5px solid var(--pretty-black);
+    border-radius: 50%; 
+    background: var(--pink);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: background 0.15s ease-in-out;
+  }
+
+  .slider-value {
+    position: absolute;
+    top: 11px; /* Adjust this value to position the value inside the slider track */
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--pretty-black);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 23px;
+    font-weight:bolder;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.185);
+}
+
+.on-off {
+    display: flex;
+    padding-top: 1rem;
+    padding-bottom: 2.5rem;
+    background-color: var(--light-violet);
+    border: 2px solid var(--light-violet);
+    border-radius: 25px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.notifications, .priv-info {
+    margin-left: 5rem;
+    margin-top: 1rem;
+}
+
+.notifs {
+    margin-left: 0;
+    display: block;
+    width: 700px;
+    
+}
+
+.specified-notifs {
+    text-align: left; /* Align the content to the left */
+    background-color: var(--light-violet);
+    border: 2px solid var(--light-violet);
+    border-radius: 25px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); 
+    padding-bottom: 1rem;
+}
+
+.specified-notifs h2 {
+    margin-left: 1rem;
+}
+
+.specified-notifs label {
+    margin-bottom: 5px;
+  }
+  
+
+  
+  /* Style the custom checkbox */
+  .specified-notifs .custom-checkbox {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 3px solid var(--pretty-black);
+    border-radius: 20%;
+    background-color: var(--turquoise);
+    cursor: pointer;
+    margin-bottom: 0;
+  }
+  
+  /* Style the custom checkbox when checked */
+  .specified-notifs .custom-checkbox:checked {
+    content: "✔";
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    background-color: var(--pink);
+    color: var(--offwhite)
+}
+
+.notif-options {
+    display: block;
+    margin-left: 1rem;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 22px;
+}
+
+.notif-option {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.notif-option input {
+    margin-left: 1rem;
+}
+
+.on-off-priv {
+    display: flex;
+    padding-top: 1rem;
+    padding-bottom: 2.5rem;
+    margin-bottom: 2rem;
+    background-color: var(--light-violet);
+    border: 2px solid var(--light-violet);
+    border-radius: 25px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.priv-info {
+    text-align: left;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 18px;
+}
+
+/*
+
+---Help page styles---
+
+*/
+
+.help textarea {
+    padding: 35px;
+    margin: 4px;
+    border-radius: 8px;
+    border: 3px solid var(--pretty-black);
+    background-color: var(--turquoise);
+    width: 80%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: left;
+    justify-content: left;
+    resize: vertical;
+    overflow-wrap: break-word;
+}
+
+
+
+.help textarea:hover {
+    background-color: var(--dark-turquoise);
+    cursor: default;
+}
+
+.help button {
+    padding: 10px;
+    border-radius: 7px;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    width: 5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: small;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+
+}
+
+.help button:hover {
+    background-color: var(--pink);
+}
+
+.contact-support {
+    margin-top: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-top: 1rem;
+    display: block;
+    width: 700px;
+    background-color: var(--light-violet);
+    border: 2px solid var(--light-violet);
+    border-radius: 25px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.support-icons p {
+    font-size: 20px;
+    font-weight: bold;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.185);
+}
+
+.divider-help {
+    height: 2px;
+    width: 80%;
+    background-color: #ddd; /* Light gray color for the line */
+    margin: 13px 0; /* Adjust as needed */
+    display: block;
+    margin-left: 4.5rem;
+}
+
+.support-icons:hover {
+    border-radius: 50%;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    cursor: pointer;
+    background-color: var(--pink);
+}
+
+.report-problem button{
+    margin-bottom: 2rem;
 }

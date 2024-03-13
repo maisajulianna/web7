@@ -54,7 +54,7 @@ function Home() {
       </div>
       <div className="uploadPost">
         <div className="post-form">
-            <h2>Upload a new post</h2>
+            <h3>Upload a new post</h3>
             <form onSubmit={handleSubmit}>
                 <label><input
                     placeholder="title"
