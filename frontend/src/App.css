@@ -26,11 +26,11 @@
     --pretty-black: #333333;
 }
 
+
 /* global */
 
 body {
     font-family: Rubik, Arial, Helvetica, sans-serif;
-    display: flex;
     left: 0;
     top: 0;
     margin: 0;
@@ -244,7 +244,7 @@ home page styles
     justify-content: center;
     color: var(--offwhite);
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
-    width: 100%;
+    display: flex;
 }
 .home-header {
     position: fixed;
@@ -257,22 +257,18 @@ home page styles
     background-color: var(--dark-violet);
     box-shadow: 3px 2px 6px rgba(0, 0, 0, 0.6);
 }
-.content {
-    display: flex;
+.content, .uploadPost {
     margin-top: 6rem;
 }
-.content section {
+.post, .post-form {
     background-color: var(--offwhite);
+    color: var(--pretty-black);
     border-radius: 8px;
     box-sizing: border-box;
-    flex: 1;
 
-    padding: 1rem;
+    padding: 1.5rem;
     margin: 1rem;
-    height: 800px;
-    width: 120px;
 }
-
 .content p {
     color: var(--offwhite);
     background-color: var(--blue);
@@ -382,7 +378,6 @@ settings page styles
 }
 
 .blocked button {
-
     padding: 10px;
     border-radius: 7px;
     cursor: pointer;
@@ -473,4 +468,223 @@ body {
     var(--dark-violet);
     background-size: 109px 109px, 109px 109px,100% 6px, 109px 109px, 109px 109px;
     background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+}
+
+/*
+----Account settings page styles----
+*/
+
+.account-header {
+    margin: 1rem 0rem 2rem 1rem;
+}
+
+.account {
+    margin: 1rem 0rem 1rem 15rem;
+    display: flex;
+    
+}
+
+.account-settings {
+    text-align: left;
+    z-index:1;
+    color: var(--offwhite);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: var(--light-violet);
+    border: 2px solid var(--light-violet);
+    border-radius: 25px;
+    padding-left: 1rem;
+    padding-bottom: 50rem;
+    padding-right: 2rem;
+    margin: 1rem;
+    margin-right: 5rem;
+    height: 350px;
+    width: 350px;
+    
+}
+
+.account-settings button {
+    border-radius: 7px;
+    cursor: pointer;
+    width: 5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: small;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    margin-bottom: 1rem
+}
+
+.account-settings button:hover {
+    background-color: var(--pink);
+}
+
+.deactivate {
+    background-color:rgb(188, 72, 72);
+    
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    position: fixed; /* Make sure it's above other elements */
+  }
+  
+  .notification {
+    background: var(--turquoise);
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.423);
+    text-align: center;
+    color:rgba(0, 0, 0, 0.848);
+    font-weight: bold;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+  
+  .notification-buttons {
+    margin-top: 10px;
+    
+    
+  }
+  
+  .notification-buttons button {
+    margin: 0 10px;
+    border-radius: 7px;
+    cursor: pointer;
+    width: 5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: small;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    margin-bottom: 1rem
+  }
+
+    .notification-buttons button:hover {
+        background-color: var(--pink);
+    }
+
+  .divider {
+    height: 2px;
+    background-color: #ddd; /* Light gray color for the line */
+    margin: 13px 0; /* Adjust as needed */
+  }
+
+  .new-password {
+    display:block;
+    margin: 7px 7px 7px 0px;
+  }
+
+  .account-settings input {
+    padding: 5px;
+    margin-bottom: 19px;
+    border-radius: 8px;
+    background-color: var(--turquoise);
+    width: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: block;
+}
+
+.account-settings input:hover {
+    background-color: var(--dark-turquoise);
+    cursor: default;
+}
+
+.profile-preview {
+    justify-content: center;
+    align-items: center;
+    padding-right: auto;
+    width: 700px;
+    height: 800px;
+    margin: 1rem 1rem 1rem 0rem;
+    text-align: left;
+    color: var(--offwhite);
+    background-color: var(--dark-violet);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: var(--light-violet);
+    border: 2px solid var(--light-violet);
+    border-radius: 25px;
+    z-index: 2;
+
+
+  }
+
+  .profile-pic {
+    border-radius: 50%;
+    margin: 1rem 1rem 1rem 1rem;
+    max-width: 30%; /* Limit the maximum width of the image to its parent container */
+    height: auto; /* Ensure the height adjusts proportionally based on the width */
+    z-index: 3; /* Ensure the profile picture is above the background */
+}
+
+  .set-username {
+    display: block;
+    font-size: 40px;
+    margin: 7px 7px 7px 0px;
+    padding-left: 1rem
+  }
+
+  .set-email {
+    display: block;
+    font-size: 20px;
+    margin: 7px 7px 7px 0px;
+    padding-left: 1.2rem
+  }
+
+  .profile-header {
+  position: absolute;
+  top: 3rem;
+  left: 48rem;
+  width: 46.35%;
+  height: 25%;
+  z-index: -2; /* Ensure the background is behind other content */
+  border-radius: 25px 25px 0 0
+}
+
+.set-post {
+    background-color: var(--offwhite);
+    border: 2px solid var(--offwhite);
+    border-radius: 25px;
+    height: 45%;
+    width: 80%;
+    justify-content: center;
+    margin: 1rem 1rem 1rem 1rem;
+}
+
+.post-appear {
+    display: block;
+    font-size: 25px;
+    margin: 7px 7px 7px 0px;
+    padding-left: 1rem;
+    color: var( --dark-violet);
+    font-weight: bold;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0);
+}
+
+.placeholder {
+    display: block;
+    font-size: 30px;
+    margin: 7px 7px 7px 0px;
+    padding-left: 1rem;
+    color: var(--turquoise);
+    font-weight: bold;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0);
 }

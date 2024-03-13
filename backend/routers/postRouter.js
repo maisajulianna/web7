@@ -16,7 +16,7 @@ const {
 
 //Activating Authentification for Routers
 router.use(checkAuth);
-router.use(checkRole('user'));
+// router.use(checkRole('user'));
 
 // GET all posts
 router.get('/', getPosts);

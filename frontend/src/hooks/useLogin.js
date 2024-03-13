@@ -16,17 +16,14 @@ const useLogin = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(object),
     });
-    console.log("3");
     const user = await response.json();
 
-    console.log("4");
     if (!response.ok) {
       setError(user.error);
       setIsLoading(false);
       return error;
     }
 
-    console.log("5");
     localStorage.setItem("token", user.token);
     localStorage.setItem("user", JSON.stringify(user));
     console.log("User logged in successfully!");

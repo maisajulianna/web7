@@ -19,7 +19,7 @@ const useSignup = () => {
         localStorage.setItem("user", JSON.stringify(user));
         console.log("User signed up successfully!");
         
-        navigate("/");
+        navigate("/home");
       } else {
         console.error("Signup failed");
       }

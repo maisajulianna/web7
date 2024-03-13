@@ -1,3 +1,4 @@
+const { findById } = require('../models/postModel')
 const User = require('../models/userModel')
 const jwt = require('jsonwebtoken')
 
@@ -30,9 +31,13 @@ const loginUser = async (req, res) => {
     const user = await User.login(email, password)
 
     // create a token
-    const token = createToken(user._id)
+    const token = createToken(user._id);
 
-    res.status(200).json({email, token}) 
+    const userData = await User.findById(user._id);
+    const username = userData.username;
+    console.log(username);
+
+    res.status(200).json({username, email, token}) 
   } catch (error) {
     res.status(400).json({error: error.message})
   }
