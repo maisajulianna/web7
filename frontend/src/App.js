@@ -33,7 +33,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}/>
+        <Navigation isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}/>
         <div className="pages">
           <Routes>
             <Route path="/" element={<Navigation />}>
